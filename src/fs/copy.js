@@ -1,9 +1,9 @@
 import  path from 'path';
 import fs from 'fs/promises';
+import { ERROR_MESSAGE } from './constants.js';
 
 const URL_FILE = path.resolve('src/fs/files');
 const URL_FILE_COPY = path.resolve('src/fs/files_copy');
-const ERROR_MESSAGE = 'FS operation failed';
 
 const copy = async () => {
   try {
