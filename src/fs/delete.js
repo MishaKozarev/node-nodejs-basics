@@ -8,9 +8,7 @@ const remove = async () => {
   try {
     await fs.unlink(URL_FILE_DELETE);
   } catch(error) {
-    if(error.message !== ERROR_MESSAGE) {
-      throw new Error(ERROR_MESSAGE);
-    } else throw error;
+    throw new Error(ERROR_MESSAGE);
   }
 };
 

@@ -6,13 +6,10 @@ const URL_FILES = path.resolve('src/fs/files');
 
 const list = async () => {
   try {
-    await fs.access(URL_FILES);
     let files = await fs.readdir(URL_FILES);
     console.log(files);
   } catch(error) {
-      if(error.message !== ERROR_MESSAGE) {
-        throw new Error(ERROR_MESSAGE);
-      } else throw error;
+    throw new Error(ERROR_MESSAGE);
   }
 };
 
