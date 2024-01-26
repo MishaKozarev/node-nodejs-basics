@@ -5,7 +5,7 @@ const transform = async () => {
 
   const transformReverse = new Transform({
     transform(chunk, encoding = 'utf-8', callback) {
-      const reverseString = chunk.toString().split('').reverse().join('');
+      const reverseString = chunk.toString().trim().split('').reverse().join('');
       callback(null, reverseString + '\n')
     }
   })
