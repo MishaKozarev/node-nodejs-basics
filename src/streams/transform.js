@@ -1,5 +1,22 @@
+import { pipeline, Transform } from 'stream';
+import { stdout, stdin } from 'process';
+
 const transform = async () => {
-    // Write your code here 
+
+  const transformReverse = new Transform({
+    transform(chunk, encoding = 'utf-8', callback) {
+      const reverseString = chunk.toString().split('').reverse().join('');
+      callback(null, reverseString + '\n')
+    }
+  })
+  pipeline(
+    stdin,
+    transformReverse,
+    stdout,
+    (err) => {
+      console.error(`Error : ${err}`);
+    }
+  )
 };
 
 await transform();
